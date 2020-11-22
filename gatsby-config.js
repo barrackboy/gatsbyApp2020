@@ -13,5 +13,28 @@ module.exports = {
     data: ["item 1", "item 2"],
     person: { name: "peter", age: 32 },
   },
-  plugins: [`gatsby-plugin-styled-components`]
+  plugins: [`gatsby-plugin-styled-components`,
+    `gatsby-transformer-sharp`, `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/posts/`,
+      },
+    }, {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `7wx2roits58o`,
+        accessToken: `pZYTdMhpCh_vE0u6brAaNnnWisiBnyCHjQBvClRSBYU`,
+      },
+    }
+
+  ]
 }

@@ -3,6 +3,10 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
+// Pullling the contentful ENV keys
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 
 module.exports = {
   /* Your site config here */
@@ -32,7 +36,8 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `7wx2roits58o`,
-        accessToken: `pZYTdMhpCh_vE0u6brAaNnnWisiBnyCHjQBvClRSBYU`,
+        accessToken: process.env.ACCESS_TOKEN
+        // accessToken: `pZYTdMhpCh_vE0u6brAaNnnWisiBnyCHjQBvClRSBYU`,
       },
     }
 
